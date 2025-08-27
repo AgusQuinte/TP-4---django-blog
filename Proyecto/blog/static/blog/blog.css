@@ -1,132 +1,31 @@
-/* ===== Estilos generales del blog ===== */
-body {
-    background-color: #da0606;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-/* Contenedor principal del blog */
-.blog-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-/* Lista de posts */
-.post-list {
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-}
-
-/* Cada post individual */
-.post-item {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.05);
-    padding: 25px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.post-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
-}
-
-/* Título del post */
-.post-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #09ff32;
-}
-
-.post-title a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.post-title a:hover {
-    color: #007BFF;
-}
-
-/* Meta información del post (fecha, autor, etc.) */
-.post-meta {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 15px;
-}
-
-/* Contenido o resumen del post */
-.post-content {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #444;
-}
-
-/* Botón de "Leer más" */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 15px;
-    background-color: #007BFF;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.2s ease;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
-/* Sidebar opcional */
-.sidebar {
-    background-color: #fff;
+.blog-post {
+    max-width: 800px;
+    margin: auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-    margin-top: 30px;
 }
 
-/* Títulos de sidebar */
-.sidebar h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
+.post-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
-/* Listado de links en sidebar */
-.sidebar ul {
-    list-style: none;
-    padding: 0;
+.post-meta {
+    color: gray;
+    margin-bottom: 1.5rem;
 }
 
-.sidebar ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar ul li a {
+.back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
     text-decoration: none;
-    color: #007BFF;
+    color: #333;
 }
 
-.sidebar ul li a:hover {
-    text-decoration: underline;
+.comments-section {
+    margin-top: 3rem;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-    .blog-container {
-        padding: 20px 15px;
-    }
-
-    .post-title {
-        font-size: 24px;
-    }
-
-    .post-content {
-        font-size: 15px;
-    }
+.comment {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
 }

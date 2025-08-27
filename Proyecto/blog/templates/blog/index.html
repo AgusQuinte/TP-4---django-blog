@@ -1,22 +1,40 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block page_title %}
+{% block title %}Blog{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Mis Blogs</h1>
+    <hr>
+
     <h2>Blog Posts</h2>
-{% endblock page_title %}
 
-{% block page_content %}
-    {% block posts %}
-        {% for post in posts %}
-            <h3><a href="{% url 'blog:detail' post.pk %}">{{ post.title }}</a></h3>
+    {% for post in posts %}
+        <article class="post">
+            <a href="{% url 'blog:detail' post.pk %}">{{ post.title }}</a>
             <small>
-                {{ post.created_on.date }} | Categories:
+                {{ post.created_on.date }} | Categorías:
                 {% for category in post.categories.all %}
                     <a href="{% url 'blog:category' category.name %}">
                         {{ category.name }}
                     </a>
+                {% empty %}
+                    Sin categorías
                 {% endfor %}
             </small>
-            <p>{{ post.body | slice:":400" }}...</p>
-        {% endfor %}
-    {% endblock posts %}
-{% endblock page_content %}
+            <p>{{ post.body|truncatewords:50 }}...</p>
+        </article>
+    {% empty %}
+        <p>No hay publicaciones todavía.</p>
+    {% endfor %}
+
+    <div class="volver-portfolio">
+        <a href="{% url 'portfolio:index' %}">
+            <button> Volver al Portfolio</button>
+        </a>
+    </div>
+{% endblock %}

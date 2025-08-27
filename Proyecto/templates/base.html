@@ -1,15 +1,52 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <title>My Personal Blog</title>
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portafolio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
-<h1>Mis blogs</h1>
-<a href="{% url "portfolio:index" %}">Volver a portfolio</a>
-<hr>
-{% block page_title %}{% endblock page_title %}
-{% block page_content %}{% endblock page_content %}
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'portfolio/assets/logo.png' %}" alt="Logo" width="80" height="80">
+            </div> 
+            <ul class="nav-section"> 
+                <li><a href="{% url 'portfolio:index' %}#sobremi">Sobre Mi</a></li>
+                <li><a href="{% url 'portfolio:index' %}#proyectos">Proyectos</a></li>
+                <li><a href="{% url 'portfolio:index' %}#habilidades">Habilidades</a></li>
+                <li><a href="{% url 'portfolio:index' %}#contacto">Contacto</a></li>
+                <li><a href="{% url 'blog:index' %}">Blog</a></li>
+            </ul> 
+            <button id="modoOscuroBtn">🌙</button>
+        </nav>
+
+        <script>
+            const botonModoOscuro = document.getElementById('modoOscuroBtn');
+            botonModoOscuro.addEventListener('click', () => {
+                document.body.classList.toggle('modo-oscuro');
+                botonModoOscuro.textContent = document.body.classList.contains('modo-oscuro') ? '🌞' : '🌙';
+            });
+        </script> 
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+     
+    <footer>
+        <p class="personal">Agustin Damian Quintela Prieto - INSTITUTO LUIS A. HUERGO - 2025</p>
+        <p>Contactame a través de: agusquintela08@gmail.com</p>
+        <ul class="redes">
+            <li><a href="https://www.instagram.com/agus.quintela_/?next=%2F">Instagram</a></li>
+            <li><a href="https://github.com/AgusQuinte">GitHub</a></li>
+        </ul>
+        <a href="{% static 'portfolio/assets/cv.webp' %}" download="CV-Agustin-Quintela.pdf">
+            <button class="boton-cv">📄 Descargar CV</button>
+        </a>
+    </footer>
 </body>
 </html>

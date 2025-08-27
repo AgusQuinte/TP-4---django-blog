@@ -1,49 +1,9 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang = "es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Portafolio</title>
-        <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+{% block title %}Portafolio{% endblock %}
 
-    </head>
-    <body>
-        <header>
-            <nav class ="navbar">
-                <div class="logo">
-                     <img src="{% static 'portfolio/assets/logo.png' %}" alt="Logo" width="80" height="80"> 
-                </div> 
-
-                <ul class="nav-section"> 
-                    <li><a href="#sobremi">Sobre Mi</a></li>
-                    <li><a href="#proyectos">Proyectos</a></li>
-                    <li><a href="#habilidades">Habilidades</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="{% url 'blog:index' %}">Blog</a></li>
-                </ul> 
-
-            <button id="modoOscuroBtn">🌙</button>
-
-            <script>
-                const botonModoOscuro = document.getElementById('modoOscuroBtn');
-
-                botonModoOscuro.addEventListener('click', () => {
-                    document.body.classList.toggle('modo-oscuro');
-
-                    // Opcional: cambiar el texto del botón
-                    if (document.body.classList.contains('modo-oscuro')) {
-                    botonModoOscuro.textContent = '🌞';
-                    } else {
-                    botonModoOscuro.textContent = '🌙';
-                    }
-                });
-            </script> 
-
-        </header>
-
-        <main>
-            <section id="sobremi" class="sobremi">
+{% block content %}
+<section id="sobremi" class="sobremi">
                 <h2><u>Sobre Mi</u></h2>
                 <p>Mi nombre es Agustin Quintela, estoy cursando 4to año en el instituto LUIS A. HUERGO. Durante estos 2 años de especialidad he estado aprendiendo muchas habilidades que me ayudaron a crear mis proyectos y me van a servir en el futuro para seguir creando nuevos. Elegi una escuela tecnica ya que sabia que queria tener una buena base educativa para luego comenzar a estudiar una carrera universitaria. No tengo definido donde voy a estudiar, aunque tengo algunas ideas como la UTN, pero se que quiero estudiar algo relacionado a la informatica ya que es algo que me gusta, y me gustaria estar trabajando de eso en unos años. Mi idea es que a partir del año que viene empezar a hacer pequeños trabajos para introducirme en el mundo laboral y ser mas independiente financieramente.</p>
             </section>
@@ -183,21 +143,5 @@
                     <button type="submit">Enviar</button>
                 </form>
             </div>
-        </main>
-     
-    </body>
-<footer>
-  <p class="personal">Agustin Damian Quintela Prieto - INSTITUTO LUIS A. HUERGO - 2025</p>
-  <p>Contactame a través de: agusquintela08@gmail.com</p>
-  <ul class="redes">
-    <li><a href="https://www.instagram.com/agus.quintela_/?next=%2F">Instagram</a></li>
-    <li><a href="https://github.com/AgusQuinte">GitHub</a></li>
-  </ul>
 
-
-  <a href="{% static 'portfolio/assets/cv.webp' %}" download="CV-Agustin-Quintela.pdf">
-    <button class="boton-cv">📄 Descargar CV</button>
-  </a>
-</footer>
-
-</html>
+{% endblock %}
