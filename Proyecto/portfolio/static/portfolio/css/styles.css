@@ -57,7 +57,6 @@ body.modo-oscuro .nav-section li a {
   color: rgb(207, 255, 76); 
 }
 
-
 .nav-section li a:hover {
   color: #c7f55c;
 }
@@ -75,7 +74,6 @@ body.modo-oscuro main {
   background-size: 400% 400%;
   animation: degradadoAnimado 10s ease infinite;
 }
-
 
 @keyframes degradadoAnimado {
   0% { background-position: 0% 50%; }
@@ -262,7 +260,6 @@ body.modo-oscuro .texto-proyecto a {
   margin-top: 20px; 
 }
 
-
 .contenedor-habilidades {
   display: flex;
   flex-wrap: wrap;
@@ -278,7 +275,6 @@ body.modo-oscuro .texto-proyecto a {
   flex-direction: column;
   align-items: center;
 }
-
 
 .boton-imagen {
   border: none;
@@ -327,3 +323,602 @@ body.modo-oscuro .texto-proyecto a {
 body.modo-oscuro .boton-cv {
   color: white;
 }
+
+
+
+.blog-container {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    line-height: 1.6 !important;
+    color: #2c3e50 !important;
+    background: linear-gradient(135deg, #76a3cf 0%, #e2e8f0 100%) !important;
+    min-height: 100vh !important;
+    padding: 40px 20px !important;
+    margin: 0 !important;
+    animation: none !important;
+}
+
+/* MODO OSCURO PARA EL BLOG */
+body.modo-oscuro .blog-container {
+    color: #e2e8f0 !important;
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%) !important;
+}
+
+.blog-container * {
+    box-sizing: border-box;
+}
+
+.blog-container .container {
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+}
+
+/* Headers del blog - Sobrescribe los del portfolio */
+.blog-container h1 {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    margin: 2rem 0 !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* Modo oscuro para h1 */
+body.modo-oscuro .blog-container h1 {
+    background: linear-gradient(135deg, #8ec5fc 0%, #e0c3fc 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.blog-container h2 {
+    font-size: 1.8rem !important;
+    margin: 1.5rem 0 !important;
+    color: #1a202c !important;
+    text-align: left !important;
+}
+
+body.modo-oscuro .blog-container h2 {
+    color: #e2e8f0 !important;
+}
+
+.blog-container h3 {
+    font-size: 1.4rem !important;
+    margin: 1.5rem 0 !important;
+    color: #2d3748 !important;
+    text-align: left !important;
+}
+
+body.modo-oscuro .blog-container h3 {
+    color: #cbd5e0 !important;
+}
+
+.blog-container hr {
+    border: none !important;
+    height: 2px !important;
+    background: linear-gradient(to right, #667eea, #764ba2) !important;
+    margin: 2rem 0 !important;
+    border-radius: 1px !important;
+}
+
+body.modo-oscuro .blog-container hr {
+    background: linear-gradient(to right, #8ec5fc, #e0c3fc) !important;
+}
+
+/* Posts del blog */
+.blog-container .post {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 16px !important;
+    padding: 2rem !important;
+    margin-bottom: 2rem !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Modo oscuro para posts */
+body.modo-oscuro .blog-container .post {
+    background: rgba(45, 55, 72, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+.blog-container .post::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 4px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+body.modo-oscuro .blog-container .post::before {
+    background: linear-gradient(135deg, #8ec5fc 0%, #e0c3fc 100%) !important;
+}
+
+.blog-container .post:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15) !important;
+}
+
+body.modo-oscuro .blog-container .post:hover {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5) !important;
+}
+
+.blog-container .post > a {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    color: #2d3748 !important;
+    text-decoration: none !important;
+    display: block !important;
+    margin-bottom: 0.5rem !important;
+    transition: color 0.3s ease !important;
+}
+
+body.modo-oscuro .blog-container .post > a {
+    color: #e2e8f0 !important;
+}
+
+.blog-container .post > a:hover {
+    color: #667eea !important;
+}
+
+body.modo-oscuro .blog-container .post > a:hover {
+    color: #8ec5fc !important;
+}
+
+.blog-container .post small {
+    color: #718096 !important;
+    font-size: 0.9rem !important;
+    display: block !important;
+    margin-bottom: 1rem !important;
+}
+
+body.modo-oscuro .blog-container .post small {
+    color: #a0aec0 !important;
+}
+
+.blog-container .post small a {
+    color: #667eea !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    display: inline !important;
+    margin: 0 0.25rem !important;
+    padding: 0.25rem 0.5rem !important;
+    background: rgba(102, 126, 234, 0.1) !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+}
+
+body.modo-oscuro .blog-container .post small a {
+    color: #8ec5fc !important;
+    background: rgba(142, 197, 252, 0.15) !important;
+}
+
+.blog-container .post small a:hover {
+    background: rgba(102, 126, 234, 0.2) !important;
+    transform: translateY(-1px) !important;
+}
+
+body.modo-oscuro .blog-container .post small a:hover {
+    background: rgba(142, 197, 252, 0.25) !important;
+}
+
+.blog-container .post p {
+    color: #4a5568 !important;
+    line-height: 1.7 !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0 !important;
+}
+
+body.modo-oscuro .blog-container .post p {
+    color: #cbd5e0 !important;
+}
+
+/* Página de detalle del post */
+.blog-container .blog-post {
+    background: rgba(203, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 20px !important;
+    padding: 3rem !important;
+    margin: 2rem auto !important;
+    max-width: 800px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+body.modo-oscuro .blog-container .blog-post {
+    background: rgba(45, 55, 72, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+.blog-container .post-title {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+}
+
+body.modo-oscuro .blog-container .post-title {
+    background: linear-gradient(135deg, #8ec5fc 0%, #e0c3fc 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.blog-container .back-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0.75rem 1.5rem !important;
+    background: rgba(102, 126, 234, 0.1) !important;
+    color: #667eea !important;
+    text-decoration: none !important;
+    border-radius: 25px !important;
+    font-weight: 500 !important;
+    margin-bottom: 2rem !important;
+    margin-right: 1rem !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(102, 126, 234, 0.2) !important;
+}
+
+body.modo-oscuro .blog-container .back-link {
+    background: rgba(142, 197, 252, 0.15) !important;
+    color: #8ec5fc !important;
+    border: 1px solid rgba(142, 197, 252, 0.3) !important;
+}
+
+.blog-container .back-link:hover {
+    background: rgba(102, 126, 234, 0.2) !important;
+    transform: translateX(-5px) !important;
+}
+
+body.modo-oscuro .blog-container .back-link:hover {
+    background: rgba(142, 197, 252, 0.25) !important;
+}
+
+.blog-container .post-meta {
+    color: #718096 !important;
+    margin-bottom: 2rem !important;
+    padding: 1rem !important;
+    background: rgba(113, 128, 150, 0.05) !important;
+    border-radius: 10px !important;
+    border-left: 4px solid #667eea !important;
+}
+
+body.modo-oscuro .blog-container .post-meta {
+    color: #a0aec0 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-left: 4px solid #8ec5fc !important;
+}
+
+.blog-container .post-meta a {
+    color: #667eea !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    margin: 0 0.25rem !important;
+    padding: 0.25rem 0.5rem !important;
+    background: rgba(102, 126, 234, 0.1) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+body.modo-oscuro .blog-container .post-meta a {
+    color: #8ec5fc !important;
+    background: rgba(142, 197, 252, 0.15) !important;
+}
+
+.blog-container .post-meta a:hover {
+    background: rgba(102, 126, 234, 0.2) !important;
+}
+
+body.modo-oscuro .blog-container .post-meta a:hover {
+    background: rgba(142, 197, 252, 0.25) !important;
+}
+
+.blog-container .post-body {
+    font-size: 1.1rem !important;
+    line-height: 1.8 !important;
+    color: #2d3748 !important;
+    margin: 2rem 0 !important;
+}
+
+body.modo-oscuro .blog-container .post-body {
+    color: #e2e8f0 !important;
+}
+
+.blog-container .post-body p {
+    margin-bottom: 1.5rem !important;
+    color: #2d3748 !important;
+}
+
+body.modo-oscuro .blog-container .post-body p {
+    color: #e2e8f0 !important;
+}
+
+/* Sección de comentarios */
+.blog-container .comments-section {
+    margin-top: 4rem !important;
+    padding-top: 2rem !important;
+    border-top: 2px solid rgba(102, 126, 234, 0.1) !important;
+}
+
+body.modo-oscuro .blog-container .comments-section {
+    border-top: 2px solid rgba(142, 197, 252, 0.2) !important;
+}
+
+.blog-container .comments-section h3 {
+    color: #2d3748 !important;
+    margin-bottom: 1.5rem !important;
+    font-size: 1.4rem !important;
+    position: relative !important;
+    text-align: left !important;
+}
+
+body.modo-oscuro .blog-container .comments-section h3 {
+    color: #e2e8f0 !important;
+}
+
+.blog-container .comments-section h3::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -5px !important;
+    left: 0 !important;
+    width: 50px !important;
+    height: 3px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-radius: 2px !important;
+}
+
+body.modo-oscuro .blog-container .comments-section h3::after {
+    background: linear-gradient(135deg, #8ec5fc 0%, #e0c3fc 100%) !important;
+}
+
+/* Formularios del blog */
+.blog-container form,
+.blog-container .comment-form {
+    background: rgba(248, 250, 252, 0.9) !important;
+    padding: 2rem !important;
+    border-radius: 12px !important;
+    margin-bottom: 3rem !important;
+    border: 1px solid rgba(102, 126, 234, 0.1) !important;
+    max-width: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+body.modo-oscuro .blog-container form,
+body.modo-oscuro .blog-container .comment-form {
+    background: rgba(45, 55, 72, 0.8) !important;
+    border: 1px solid rgba(142, 197, 252, 0.2) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.blog-container .form-group {
+    margin-bottom: 1.5rem !important;
+}
+
+.blog-container .form-group label,
+.blog-container form label {
+    display: block !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 500 !important;
+    color: #2d3748 !important;
+}
+
+body.modo-oscuro .blog-container .form-group label,
+body.modo-oscuro .blog-container form label {
+    color: #e2e8f0 !important;
+}
+
+.blog-container .comment-form input,
+.blog-container .comment-form textarea,
+.blog-container form input,
+.blog-container form textarea {
+    width: 100% !important;
+    padding: 1rem !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+    background: white !important;
+    font-family: 'Inter', sans-serif !important;
+    margin-bottom: 0 !important;
+    color: #2d3748 !important;
+}
+
+body.modo-oscuro .blog-container .comment-form input,
+body.modo-oscuro .blog-container .comment-form textarea,
+body.modo-oscuro .blog-container form input,
+body.modo-oscuro .blog-container form textarea {
+    background: #4a5568 !important;
+    border: 2px solid #718096 !important;
+    color: #e2e8f0 !important;
+}
+
+.blog-container .comment-form input:focus,
+.blog-container .comment-form textarea:focus,
+.blog-container form input:focus,
+.blog-container form textarea:focus {
+    outline: none !important;
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+body.modo-oscuro .blog-container .comment-form input:focus,
+body.modo-oscuro .blog-container .comment-form textarea:focus,
+body.modo-oscuro .blog-container form input:focus,
+body.modo-oscuro .blog-container form textarea:focus {
+    border-color: #8ec5fc !important;
+    box-shadow: 0 0 0 3px rgba(142, 197, 252, 0.2) !important;
+}
+
+.blog-container .comment-form textarea {
+    resize: vertical !important;
+    min-height: 120px !important;
+}
+
+/* Botones del blog */
+.blog-container .btn,
+.blog-container button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    padding: 1rem 2rem !important;
+    border: none !important;
+    border-radius: 25px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+}
+
+body.modo-oscuro .blog-container .btn,
+body.modo-oscuro .blog-container button {
+    background: linear-gradient(135deg, #8ec5fc 0%, #e0c3fc 100%) !important;
+    color: #1a202c !important;
+    box-shadow: 0 4px 15px rgba(142, 197, 252, 0.3) !important;
+}
+
+.blog-container .btn:hover,
+.blog-container button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+}
+
+body.modo-oscuro .blog-container .btn:hover,
+body.modo-oscuro .blog-container button:hover {
+    box-shadow: 0 8px 25px rgba(142, 197, 252, 0.4) !important;
+}
+
+/* Lista de comentarios */
+.blog-container .comments-list {
+    margin-top: 2rem !important;
+}
+
+.blog-container .comment {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 12px !important;
+    padding: 0.8rem !important;
+    margin-bottom: 1rem !important;
+    transition: all 0.3s ease !important;
+    word-break: break-word !important;
+    overflow: hidden !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+body.modo-oscuro .blog-container .comment {
+    background: rgba(45, 55, 72, 0.7) !important;
+    border: 1px solid rgba(113, 128, 150, 0.3) !important;
+}
+
+.blog-container .comment:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    transform: translateX(5px) !important;
+}
+
+body.modo-oscuro .blog-container .comment:hover {
+    background: rgba(45, 55, 72, 0.9) !important;
+}
+
+.blog-container .comment p:first-child {
+    font-weight: 600 !important;
+    color: #667eea !important;
+    margin-bottom: 0.5rem !important;
+}
+
+body.modo-oscuro .blog-container .comment p:first-child {
+    color: #8ec5fc !important;
+}
+
+.blog-container .comment p:last-child {
+    color: #4a5568 !important;
+    margin-bottom: 0 !important;
+}
+
+body.modo-oscuro .blog-container .comment p:last-child {
+    color: #cbd5e0 !important;
+}
+
+/* Botón volver al portfolio */
+.blog-container .volver-portfolio {
+    text-align: center !important;
+    margin: 3rem 0 !important;
+}
+
+.blog-container .volver-portfolio button {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+    color: white !important;
+    padding: 1rem 2rem !important;
+    border: none !important;
+    border-radius: 25px !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3) !important;
+}
+
+body.modo-oscuro .blog-container .volver-portfolio button {
+    background: linear-gradient(135deg, #63b3ed 0%, #81e6d9 100%) !important;
+    color: #1a202c !important;
+    box-shadow: 0 8px 25px rgba(99, 179, 237, 0.3) !important;
+}
+
+.blog-container .volver-portfolio button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 35px rgba(79, 172, 254, 0.4) !important;
+}
+
+.blog-container .post .post-portada { 
+  max-width: 300px !important; 
+  max-height: 400px !important; 
+  width: 100% !important; 
+  margin-bottom: 1rem !important; 
+  border-radius: 12px !important; 
+  overflow: hidden !important; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important; } 
+
+.blog-container .post .post-portada img { 
+  width: 100% !important; 
+  height: 100% !important; 
+  object-fit: cover !important; 
+  transition: transform 0.3s ease !important; } 
+
+.blog-container .post .post-portada img:hover { 
+  transform: scale(1.05) !important; } 
+
+/* Imagen de portada en detalle del post */ 
+.blog-container .blog-post .post-portada { 
+  max-width: 300px !important; 
+  max-height: 400px !important; 
+  width: 100% !important; 
+  margin: 2rem auto !important; 
+  border-radius: 16px !important; 
+  overflow: hidden !important; 
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important; 
+  display: block !important; } 
+
+.blog-container .blog-post .post-portada img { width: 100% !important; height: 100% !important; object-fit: cover !important; } 
+
+/* Modo oscuro para las imágenes */ 
+body.modo-oscuro .blog-container .post .post-portada { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important; } 
+
+body.modo-oscuro .blog-container .blog-post .post-portada { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important; } 
+

@@ -4,37 +4,54 @@
 {% block title %}Blog{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-    <h1>Mis Blogs</h1>
-    <hr>
+<div class="blog-container">
+    <div class="container">
+        <h1>Mis posts</h1>
+        <hr>
 
-    <h2>Blog Posts</h2>
+        <h2>Últimas Publicaciones</h2>
 
-    {% for post in posts %}
-        <article class="post">
-            <a href="{% url 'blog:detail' post.pk %}">{{ post.title }}</a>
-            <small>
-                {{ post.created_on.date }} | Categorías:
-                {% for category in post.categories.all %}
-                    <a href="{% url 'blog:category' category.name %}">
-                        {{ category.name }}
-                    </a>
-                {% empty %}
-                    Sin categorías
-                {% endfor %}
-            </small>
-            <p>{{ post.body|truncatewords:50 }}...</p>
-        </article>
-    {% empty %}
-        <p>No hay publicaciones todavía.</p>
-    {% endfor %}
+        {% for post in posts %}
+            <article class="post">
+                            
+            {% if post.portada %}   
+            <div class="post-portada"> 
+                <img src="{{ post.portada.url }}" alt="Portada de {{ post.title }}"> 
+            </div> 
+            {% endif %}
 
-    <div class="volver-portfolio">
-        <a href="{% url 'portfolio:index' %}">
-            <button> Volver al Portfolio</button>
-        </a>
+                <a href="{% url 'blog:detail' post.pk %}">{{ post.title }}</a>
+                <small>
+                    📅 {{ post.created_on.date }} | 
+                    {% if post.categories.all %}
+                        🏷️ Categorías:
+                        {% for category in post.categories.all %}
+                            <a href="{% url 'blog:category' category.name %}">
+                                {{ category.name }}
+                            </a>
+                            {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        🏷️ Sin categorías
+                    {% endif %}
+                </small>
+                <p>{{ post.body|truncatewords:50 }}...</p>
+            </article>
+        {% empty %}
+            <div class="no-posts">
+                <p>✨ No hay publicaciones todavía. ¡Pronto habrá contenido interesante!</p>
+            </div>
+        {% endfor %}
+
+        <div class="volver-portfolio">
+            <a href="{% url 'portfolio:index' %}">
+                <button>← Volver al Portfolio</button>
+            </a>
+        </div>
     </div>
+</div>
 {% endblock %}

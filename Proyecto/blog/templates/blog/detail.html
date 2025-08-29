@@ -1,54 +1,80 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block page_title %}
-    <h2 class="post-title">{{ post.title }}</h2>
-{% endblock page_title %}
+{% block title %}{{ post.title }} - Blog{% endblock %}
 
-{% block page_content %}
-<div class="blog-post">
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+{% endblock %}
 
-    <a href="{% url 'blog:index' %}" class="back-link">&larr; Volver</a>
+{% block content %}
+<div class="blog-container">
+    <div class="container">
+        <div class="blog-post">
+            <a href="{% url 'blog:index' %}" class="back-link">← Volver al Blog</a>
 
-    <div class="post-meta">
-        <small>
-            {{ post.created_on.date }} | Categories:
-            {% for category in post.categories.all %}
-                <a href="{% url 'blog:category' category.name %}" class="category-link">
-                    {{ category.name }}
-                </a>
-            {% endfor %}
-        </small>
-    </div>
+            <h1 class="post-title">{{ post.title }}</h1>
+        {% if post.portada %}   
+        <div class="post-portada">  
+            <img src="{{ post.portada.url }}" alt="Portada de {{ post.title }}"> 
+        </div> 
+        {% endif %}
 
-    <div class="post-body">
-        <p>{{ post.body | linebreaks }}</p>
-    </div>
-
-    <div class="comments-section">
-        <h3>Leave a comment:</h3>
-        <form method="post" class="comment-form">
-            {% csrf_token %}
-            <div class="form-group">
-                {{ form.author }}
+            <div class="post-meta">
+                <small>
+                    📅 Publicado el {{ post.created_on.date }}
+                    {% if post.last_modified.date != post.created_on.date %}
+                        • ✏️ Actualizado el {{ post.last_modified.date }}
+                    {% endif %}
+                    
+                    {% if post.categories.all %}
+                        <br>🏷️ Categorías:
+                        {% for category in post.categories.all %}
+                            <a href="{% url 'blog:category' category.name %}">
+                                {{ category.name }}
+                            </a>
+                            {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </small>
             </div>
-            <div class="form-group">
-                {{ form.body }}
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
 
-        <h3>Comments:</h3>
-        <div class="comments-list">
-            {% for comment in comments %}
-            <div class="comment">
-                <p><b>{{ comment.author }}</b> on {{ comment.created_on.date }} wrote:</p>
-                <p>{{ comment.body | linebreaks }}</p>
+            <div class="post-body">
+                {{ post.body | linebreaks }}
             </div>
-            {% endfor %}
+
+            <div class="comments-section">
+                <h3>💬 Deja un comentario</h3>
+                <form method="post" class="comment-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_author">👤 Nombre:</label>
+                        {{ form.author }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_body">💭 Comentario:</label>
+                        {{ form.body }}
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Publicar Comentario</button>
+                    </div>
+                </form>
+
+                <h3>💬 Comentarios ({{ comments.count }})</h3>
+                <div class="comments-list">
+                    {% for comment in comments %}
+                    <div class="comment">
+                        <p><strong>👤 {{ comment.author }}</strong> • {{ comment.created_on.date }}</p>
+                        <p>{{ comment.body | linebreaks }}</p>
+                    </div>
+                    {% empty %}
+                    <div class="no-comments">
+                        <p>🤷‍♂️ Aún no hay comentarios. ¡Sé el primero en comentar!</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
-
 </div>
-{% endblock page_content %}
+{% endblock %}

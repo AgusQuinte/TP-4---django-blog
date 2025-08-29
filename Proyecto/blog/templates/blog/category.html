@@ -1,5 +1,48 @@
-{% extends "blog/index.html" %}
+{% extends "base.html" %}
+{% load static %}
 
-{% block page_title %}
-<h2>{{ category }}</h2>
-{% endblock page_title %}
+{% block title %}{{ category }} - Blog{% endblock %}
+
+{% block extra_css %}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="blog-container">
+    <div class="container">
+        <div class="category-header">
+            <h2>🏷️ {{ category }}</h2>
+            <p>Todas las publicaciones en la categoría "{{ category }}"</p>
+        </div>
+
+        {% for post in posts %}
+            <article class="post">
+                <a href="{% url 'blog:detail' post.pk %}">{{ post.title }}</a>
+                <small>
+                    📅 {{ post.created_on.date }} | 
+                    🏷️ Categorías:
+                    {% for cat in post.categories.all %}
+                        <a href="{% url 'blog:category' cat.name %}">
+                            {{ cat.name }}
+                        </a>
+                        {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </small>
+                <p>{{ post.body|truncatewords:50 }}...</p>
+            </article>
+        {% empty %}
+            <div class="no-posts">
+                <p>😔 No hay publicaciones en esta categoría aún.</p>
+                <a href="{% url 'blog:index' %}" class="back-link">← Ver todas las publicaciones</a>
+            </div>
+        {% endfor %}
+
+        <div class="volver-portfolio">
+            <a href="{% url 'blog:index' %}" class="back-link" style="margin-right: 1rem;">← Volver al Blog</a>
+            <a href="{% url 'portfolio:index' %}">
+                <button>← Volver al Portfolio</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
